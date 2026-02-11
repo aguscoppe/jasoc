@@ -25,7 +25,9 @@ const Areas = () => {
       justifyContent="center"
       marginBottom={12}
     >
-      <Typography variant="h3">Áreas de especialidad</Typography>
+      <Typography variant="h3" padding={3}>
+        Áreas de especialidad
+      </Typography>
       <Grid
         container
         display="flex"

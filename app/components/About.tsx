@@ -19,7 +19,7 @@ const About = () => {
         justifyContent="center"
         textAlign="center"
       >
-        <Typography variant="h3" padding={1}>
+        <Typography variant="h3" padding={3}>
           Trayectoria
         </Typography>
         <Typography variant="body1" padding={1}>

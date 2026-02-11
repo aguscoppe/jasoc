@@ -13,7 +13,8 @@ const Area = ({
     <Grid
       size={{ xs: 3 }}
       padding={2}
-      margin={2}
+      marginX={4}
+      marginY={2}
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -29,7 +30,9 @@ const Area = ({
       <Icon color="primary" fontSize="large">
         {icon}
       </Icon>
-      <Typography variant="h6">{title}</Typography>
+      <Typography variant="h6" fontWeight={400}>
+        {title}
+      </Typography>
       <Button variant="contained" size="small">
         ver más
       </Button>

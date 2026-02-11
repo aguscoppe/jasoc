@@ -1,6 +1,7 @@
 import { Button, Grid, Typography } from "@mui/material";
 import NavBar from "./NavBar";
 import Image from "next/image";
+import Link from "next/link";
 
 const Header = () => {
   return (
@@ -17,7 +18,7 @@ const Header = () => {
         container
         height="100%"
         display="flex"
-        alignContent="center"
+        alignItems="center"
         justifyContent="center"
       >
         <Grid
@@ -27,8 +28,12 @@ const Header = () => {
           alignItems="center"
         >
           <Typography variant="h1">Bettina Ruibal</Typography>
-          <Typography variant="h4">Abogada de familia</Typography>
-          <Button variant="contained">contacto</Button>
+          <Typography variant="h4" marginBottom={4}>
+            Abogada de familia
+          </Typography>
+          <Button variant="contained">
+            <Link href="#contact">contacto</Link>
+          </Button>
         </Grid>
         <Grid>
           <Image
