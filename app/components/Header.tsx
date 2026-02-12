@@ -2,10 +2,12 @@ import { Button, Grid, Typography } from "@mui/material";
 import NavBar from "./NavBar";
 import Image from "next/image";
 import Link from "next/link";
+import { sizes } from "../constants";
 
-const Header = () => {
+const Header = ({ currentSectionId }: { currentSectionId: string | null }) => {
   return (
     <Grid
+      component="section"
       id="header"
       sx={{
         height: "100vh",
@@ -13,13 +15,14 @@ const Header = () => {
         backgroundImage: 'url("/header_bg.png")',
       }}
     >
-      <NavBar />
+      <NavBar currentSectionId={currentSectionId} />
       <Grid
-        container
         height="100%"
         display="flex"
+        flexDirection={{ xs: "column-reverse", lg: "row" }}
         alignItems="center"
         justifyContent="center"
+        size={sizes}
       >
         <Grid
           display="flex"

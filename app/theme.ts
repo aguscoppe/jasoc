@@ -1,12 +1,13 @@
 import { createTheme } from "@mui/material/styles";
+import { colors } from "./constants";
 
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#FFB8A4",
+      main: colors.coral,
     },
     secondary: {
-      main: "#A3E0E2",
+      main: colors.aqua,
     },
   },
   components: {
@@ -54,13 +55,13 @@ const theme = createTheme({
         {
           props: { variant: "contained" },
           style: {
-            background: "linear-gradient(90deg, #FFB8A4 0%, #A3E0E2 100%)",
+            background: `linear-gradient(90deg, ${colors.coral} 0%, ${colors.aqua} 100%)`,
           },
         },
         {
           props: { variant: "outlined" },
           style: {
-            backgroundColor: "#FFB8A4",
+            backgroundColor: colors.coral,
           },
         },
       ],
@@ -74,7 +75,7 @@ const theme = createTheme({
           boxShadow: "none",
           ":hover": {
             boxShadow: "none",
-            backgroundColor: "#FFB8A4",
+            backgroundColor: colors.coral,
           },
         },
       },

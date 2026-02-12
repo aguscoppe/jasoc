@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import { itemsAreas } from "../constants";
+import { itemsAreas, sizes } from "../constants";
 import Area from "./Area";
 import DotsMobileStepper from "./DotsMobileStepper";
 import { useState } from "react";
@@ -17,13 +17,14 @@ const Areas = () => {
 
   return (
     <Grid
+      component="section"
       id="areas"
       container
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      marginBottom={12}
+      paddingTop={12}
     >
       <Typography variant="h3" padding={3}>
         Áreas de especialidad
@@ -32,7 +33,8 @@ const Areas = () => {
         container
         display="flex"
         alignItems="center"
-        justifyContent="center"
+        justifyContent="space-between"
+        size={sizes}
       >
         {itemsAreas.map((item, index) =>
           index >= activeStep && index < activeStep + 3 ? (

@@ -1,5 +1,5 @@
 import { Grid, Typography } from "@mui/material";
-import { itemsFAQ } from "../constants";
+import { itemsFAQ, sizes } from "../constants";
 import Question from "./Question";
 import { useState } from "react";
 
@@ -16,19 +16,20 @@ const Questions = () => {
 
   return (
     <Grid
+      component="section"
       id="faq"
       container
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      marginBottom={12}
+      paddingTop={12}
     >
       <Typography variant="h3" padding={3}>
         Preguntas frecuentes
       </Typography>
       <Grid
-        size={{ xs: 8 }}
+        size={sizes}
         display="flex"
         flexDirection="column"
         paddingY={4}
@@ -38,6 +39,7 @@ const Questions = () => {
           maxHeight: "400px",
           overflow: "auto",
           scrollbarWidth: "thin",
+          boxShadow: "0px 4px 32px rgba(0, 0, 0, 0.1)",
         }}
       >
         {faqItems.map((item, index) => (

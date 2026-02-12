@@ -13,8 +13,6 @@ const Area = ({
     <Grid
       size={{ xs: 3 }}
       padding={2}
-      marginX={4}
-      marginY={2}
       display="flex"
       flexDirection="column"
       alignItems="center"
@@ -23,11 +21,12 @@ const Area = ({
       sx={{
         background: "#fff",
         borderRadius: "40px",
-        height: "200px",
-        width: "200px",
+        height: "180px",
+        width: "180px",
+        boxShadow: "0px 4px 32px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Icon color="primary" fontSize="large">
+      <Icon color="secondary" fontSize="large">
         {icon}
       </Icon>
       <Typography variant="h6" fontWeight={400}>

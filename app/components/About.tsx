@@ -1,18 +1,20 @@
 import { Button, Grid, Typography } from "@mui/material";
+import { sizes } from "../constants";
 
 const About = () => {
   return (
     <Grid
+      component="section"
       id="about"
       container
       display="flex"
       flexDirection="column"
       alignItems="center"
       justifyContent="center"
-      marginBottom={12}
+      paddingTop={12}
     >
       <Grid
-        size={{ xs: 6 }}
+        size={sizes}
         display="flex"
         flexDirection="column"
         alignItems="center"

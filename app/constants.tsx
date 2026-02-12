@@ -1,3 +1,8 @@
+export const sizes = { xs: 10, sm: 9, md: 8, lg: 6 };
+export const colors = {
+  coral: "#FFB8A4",
+  aqua: "#A3E0E2",
+};
 export interface QuestionItem {
   id: number;
   question: string;

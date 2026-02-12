@@ -1,9 +1,11 @@
-import { Grid, Icon, Typography } from "@mui/material";
+import { Grid, Typography, useTheme } from "@mui/material";
+import GavelIcon from "@mui/icons-material/Gavel";
 import Link from "next/link";
 import { navLinks } from "../constants";
 import { useEffect, useState } from "react";
 
-const NavBar = () => {
+const NavBar = ({ currentSectionId }: { currentSectionId: string | null }) => {
+  const theme = useTheme();
   const [scrollPosition, setScrollPosition] = useState(0);
 
   const handleScroll = () => {
@@ -30,24 +32,35 @@ const NavBar = () => {
       justifyContent="space-between"
       sx={{
         width: "100%",
-        backgroundColor: scrollPosition > 180 ? "#FFB8A4" : "transparent",
+        backgroundColor:
+          scrollPosition > 180 ? theme.palette.primary.main : "transparent",
         zIndex: 1000,
         transition: "background-color 0.25s linear",
       }}
     >
       <Link href="/" className="navbar-item">
-        <Icon color="inherit" fontSize="large">
-          account_balance
-        </Icon>
+        <GavelIcon color="action" />
       </Link>
       <Grid display="flex" justifyContent="space-between">
-        {navLinks.map((link) => (
-          <Link key={link.id} href={link.url} className="navbar-item">
-            <Typography variant="body1" marginX={2}>
-              {link.title}
-            </Typography>
-          </Link>
-        ))}
+        {navLinks.map((link) => {
+          const currentUrl = link.url.replace("/#", "");
+          return (
+            <Link key={link.id} href={link.url}>
+              <Typography
+                variant="body1"
+                marginX={2}
+                sx={{
+                  borderBottom:
+                    currentUrl === currentSectionId
+                      ? "1px solid black"
+                      : "none",
+                }}
+              >
+                {link.title}
+              </Typography>
+            </Link>
+          );
+        })}
       </Grid>
     </Grid>
   );
