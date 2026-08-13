@@ -11,7 +11,7 @@ const Area = ({
 }) => {
   return (
     <Grid
-      size={{ xs: 3 }}
+      size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
       padding={2}
       display="flex"
       flexDirection="column"
@@ -22,7 +22,9 @@ const Area = ({
         background: "#fff",
         borderRadius: "40px",
         height: "180px",
-        width: "180px",
+        // width: { xs: "100%", sm: "145px", md: "185px" },
+
+        width: "100%",
         boxShadow: "0px 4px 32px rgba(0, 0, 0, 0.1)",
       }}
     >
