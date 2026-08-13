@@ -40,6 +40,12 @@ const Question = ({
             variant="outlined"
             size="small"
             onClick={() => handleOpen(id)}
+            aria-label={
+              open
+                ? `Cerrar respuesta: ${question}`
+                : `Abrir respuesta: ${question}`
+            }
+            aria-expanded={open}
             sx={{
               textAlign: "center",
               fontWeight: 500,
