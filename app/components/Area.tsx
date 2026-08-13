@@ -26,7 +26,7 @@ const Area = ({
         boxShadow: "0px 4px 32px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Icon color="secondary" fontSize="large">
+      <Icon color="secondary" fontSize="large" aria-label={title}>
         {icon}
       </Icon>
       <Typography variant="h6" fontWeight={400}>

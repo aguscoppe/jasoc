@@ -9,8 +9,8 @@ const Questions = () => {
   const handleOpen = (id: number) => {
     setFaqItems((prevItems) =>
       prevItems.map((item) =>
-        item.id === id ? { ...item, open: !item.open } : item
-      )
+        item.id === id ? { ...item, open: !item.open } : item,
+      ),
     );
   };
 

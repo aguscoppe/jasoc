@@ -44,7 +44,7 @@ const Areas = () => {
               text={item.text}
               icon={item.icon}
             />
-          ) : null
+          ) : null,
         )}
       </Grid>
       <DotsMobileStepper

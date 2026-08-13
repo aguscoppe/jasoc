@@ -25,6 +25,7 @@ const Footer = () => {
               backgroundColor: "#A3E0E2",
             },
           }}
+          aria-label="Volver al inicio"
         >
           <KeyboardArrowUpIcon />
         </IconButton>
