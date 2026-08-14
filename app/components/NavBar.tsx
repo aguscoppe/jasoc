@@ -1,12 +1,23 @@
-import { Grid, Typography, useTheme } from "@mui/material";
+import {
+  Grid,
+  IconButton,
+  Menu,
+  MenuItem,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import GavelIcon from "@mui/icons-material/Gavel";
+import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import { navLinks } from "../constants";
 import { useEffect, useState } from "react";
+import useBreakpoints from "../hooks/useBreakpoints";
 
 const NavBar = ({ currentSectionId }: { currentSectionId: string | null }) => {
   const theme = useTheme();
+  const { isXs } = useBreakpoints();
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [menuAnchor, setMenuAnchor] = useState<null | HTMLElement>(null);
 
   const handleScroll = () => {
     const position = window.scrollY;
@@ -20,6 +31,14 @@ const NavBar = ({ currentSectionId }: { currentSectionId: string | null }) => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setMenuAnchor(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setMenuAnchor(null);
+  };
 
   return (
     <Grid
@@ -38,10 +57,15 @@ const NavBar = ({ currentSectionId }: { currentSectionId: string | null }) => {
         transition: "background-color 0.25s linear",
       }}
     >
-      <Link href="/" className="navbar-item">
-        <GavelIcon color="action" />
+      <Link
+        href="/#header"
+        className="navbar-item"
+        aria-label="Ir al inicio"
+        style={{ display: "flex", color: "inherit" }}
+      >
+        <GavelIcon sx={{ color: "text.primary" }} />
       </Link>
-      <Grid display="flex" justifyContent="space-between">
+      <Grid display={{ xs: "none", sm: "flex" }} justifyContent="space-between">
         {navLinks.map((link) => {
           const currentUrl = link.url.replace("/#", "");
           return (
@@ -62,6 +86,34 @@ const NavBar = ({ currentSectionId }: { currentSectionId: string | null }) => {
           );
         })}
       </Grid>
+      {isXs && (
+        <>
+          <IconButton
+            aria-label="Abrir menú de navegación"
+            aria-controls={menuAnchor ? "mobile-navigation-menu" : undefined}
+            aria-haspopup="true"
+            aria-expanded={menuAnchor ? "true" : undefined}
+            onClick={handleMenuOpen}
+            sx={{ color: "text.primary" }}
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="mobile-navigation-menu"
+            anchorEl={menuAnchor}
+            open={Boolean(menuAnchor)}
+            onClose={handleMenuClose}
+            anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+            transformOrigin={{ vertical: "top", horizontal: "right" }}
+          >
+            {navLinks.map((link) => (
+              <MenuItem key={link.id} onClick={handleMenuClose}>
+                <Link href={link.url}>{link.title}</Link>
+              </MenuItem>
+            ))}
+          </Menu>
+        </>
+      )}
     </Grid>
   );
 };

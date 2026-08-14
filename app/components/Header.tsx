@@ -3,8 +3,11 @@ import NavBar from "./NavBar";
 import Image from "next/image";
 import Link from "next/link";
 import { sizes } from "../constants";
+import useBreakpoints from "../hooks/useBreakpoints";
 
 const Header = ({ currentSectionId }: { currentSectionId: string | null }) => {
+  const { isXs } = useBreakpoints();
+  const mainTitleVariant = isXs ? "h2" : "h1";
   return (
     <Grid
       component="section"
@@ -30,7 +33,7 @@ const Header = ({ currentSectionId }: { currentSectionId: string | null }) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography variant="h1">Bettina Ruibal</Typography>
+          <Typography variant={mainTitleVariant}>Bettina Ruibal</Typography>
           <Typography variant="h4" marginBottom={4}>
             Abogada de familia
           </Typography>

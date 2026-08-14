@@ -1,7 +1,8 @@
-import { Grid, Typography } from "@mui/material";
+import { Grid } from "@mui/material";
 import { itemsFAQ, sizes } from "../constants";
 import Question from "./Question";
 import { useState } from "react";
+import SectionTitle from "./SectionTitle";
 
 const Questions = () => {
   const [faqItems, setFaqItems] = useState(itemsFAQ);
@@ -25,9 +26,9 @@ const Questions = () => {
       justifyContent="center"
       paddingTop={12}
     >
-      <Typography variant="h3" padding={3}>
+      <SectionTitle padding={3}>
         Preguntas frecuentes
-      </Typography>
+      </SectionTitle>
       <Grid
         size={sizes}
         display="flex"
