@@ -2,12 +2,12 @@ import { Button, Grid, Typography, Icon } from "@mui/material";
 
 const Area = ({
   title,
-  text,
   icon,
+  handleShowDialog,
 }: {
   title: string;
-  text: string;
   icon: string;
+  handleShowDialog: () => void;
 }) => {
   return (
     <Grid
@@ -22,19 +22,38 @@ const Area = ({
         background: "#fff",
         borderRadius: "40px",
         height: "180px",
-        // width: { xs: "100%", sm: "145px", md: "185px" },
-
         width: "100%",
         boxShadow: "0px 4px 32px rgba(0, 0, 0, 0.1)",
       }}
     >
-      <Icon color="secondary" fontSize="large" aria-label={title}>
+      <Icon
+        color="secondary"
+        aria-label={title}
+        sx={{
+          fontSize: {
+            xs: "3rem",
+            sm: "2.5rem",
+            md: "2rem",
+          },
+        }}
+      >
         {icon}
       </Icon>
-      <Typography variant="h6" fontWeight={400}>
+      <Typography
+        variant="h6"
+        fontWeight={400}
+        sx={{
+          fontSize: {
+            xs: "1.4rem",
+            sm: "1.2rem",
+            md: "1.1rem",
+            lg: "1rem",
+          },
+        }}
+      >
         {title}
       </Typography>
-      <Button variant="contained" size="small">
+      <Button variant="contained" size="small" onClick={handleShowDialog}>
         ver más
       </Button>
     </Grid>

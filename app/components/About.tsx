@@ -1,7 +1,20 @@
 import { Button, Grid, Typography } from "@mui/material";
-import { sizes } from "../constants";
+import Dialog from "./Dialog";
+import { fullAboutMe, sizes } from "../constants";
+import SectionTitle from "./SectionTitle";
+import { useState } from "react";
 
 const About = () => {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+
+  const handleShowDialog = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleHideDialog = () => {
+    setIsDialogOpen(false);
+  };
+
   return (
     <Grid
       component="section"
@@ -21,9 +34,7 @@ const About = () => {
         justifyContent="center"
         textAlign="center"
       >
-        <Typography variant="h3" padding={3}>
-          Trayectoria
-        </Typography>
+        <SectionTitle padding={3}>Trayectoria</SectionTitle>
         <Typography variant="body1" padding={1}>
           Abogada recibida en la Universidad de Buenos Aires (UBA) - Facultad de
           Derecho y Ciencias Sociales en el año 1997. Dedicada desde el año 2000
@@ -35,8 +46,21 @@ const About = () => {
           posgrado y actualización legislativa. Experiencia y desempeño de alto
           rendimiento en la especialidad.
         </Typography>
-        <Button variant="contained">ver más</Button>
+        <Button variant="contained" onClick={handleShowDialog}>
+          ver más
+        </Button>
       </Grid>
+      <Dialog
+        title="Trayectoria"
+        isOpen={isDialogOpen}
+        handleHideDialog={handleHideDialog}
+      >
+        {fullAboutMe.map((paragraph) => (
+          <Typography key={paragraph} variant="body1" paragraph>
+            {paragraph}
+          </Typography>
+        ))}
+      </Dialog>
     </Grid>
   );
 };

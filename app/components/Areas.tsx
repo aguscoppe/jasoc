@@ -1,7 +1,10 @@
-import { Grid, Typography, useMediaQuery } from "@mui/material";
+import { Grid } from "@mui/material";
 import { itemsAreas, sizes } from "../constants";
 import Area from "./Area";
 import DotsMobileStepper from "./DotsMobileStepper";
+import Dialog from "./Dialog";
+import SectionTitle from "./SectionTitle";
+import useBreakpoints from "../hooks/useBreakpoints";
 import { useState } from "react";
 
 const getItemsPerView = (
@@ -18,20 +21,58 @@ const getItemsPerView = (
 };
 
 const Areas = () => {
-  const [activeStep, setActiveStep] = useState(0);
-  const isXs = useMediaQuery((theme) => theme.breakpoints.only("xs"));
-  const isSm = useMediaQuery((theme) => theme.breakpoints.only("sm"));
-  const isMd = useMediaQuery((theme) => theme.breakpoints.only("md"));
-  const isLg = useMediaQuery((theme) => theme.breakpoints.only("lg"));
+  const [activeAreaIndex, setActiveAreaIndex] = useState(0);
+  const [activePage, setActivePage] = useState(0);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { isXs, isSm, isMd, isLg } = useBreakpoints();
 
   const itemsPerView = getItemsPerView(isXs, isSm, isMd, isLg);
+  const lastPageStart = Math.max(itemsAreas.length - itemsPerView, 0);
+  const pageCount = Math.max(
+    Math.ceil(lastPageStart / itemsPerView) + 1,
+    1,
+  );
+  const pageStart = Math.min(activePage * itemsPerView, lastPageStart);
+  const activeArea = itemsAreas[activeAreaIndex];
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+    const nextPage = Math.min(activePage + 1, pageCount - 1);
+    setActivePage(nextPage);
+    setActiveAreaIndex(Math.min(nextPage * itemsPerView, lastPageStart));
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    const previousPage = Math.max(activePage - 1, 0);
+    setActivePage(previousPage);
+    setActiveAreaIndex(previousPage * itemsPerView);
+  };
+
+  const handleShowDialog = (areaIndex: number) => {
+    setActiveAreaIndex(areaIndex);
+    setIsDialogOpen(true);
+  };
+
+  const handleHideDialog = () => {
+    setIsDialogOpen(false);
+  };
+
+  const handleNextDialog = () => {
+    const nextIndex = Math.min(activeAreaIndex + 1, itemsAreas.length - 1);
+    setActiveAreaIndex(nextIndex);
+
+    const pageEnd = pageStart + itemsPerView - 1;
+    if (nextIndex > pageEnd) {
+      setActivePage(Math.min(Math.floor(nextIndex / itemsPerView), pageCount - 1));
+    }
+  };
+
+  const handleBackDialog = () => {
+    const previousIndex = Math.max(activeAreaIndex - 1, 0);
+    setActiveAreaIndex(previousIndex);
+
+    if (previousIndex < pageStart) {
+      setActivePage(Math.floor(previousIndex / itemsPerView));
+    }
   };
 
   return (
@@ -45,9 +86,7 @@ const Areas = () => {
       justifyContent="center"
       paddingTop={12}
     >
-      <Typography variant="h3" padding={3}>
-        Áreas de especialidad
-      </Typography>
+      <SectionTitle padding={3}>Áreas de especialidad</SectionTitle>
       <Grid
         container
         spacing={2}
@@ -57,22 +96,33 @@ const Areas = () => {
         size={sizes}
       >
         {itemsAreas.map((item, index) =>
-          index >= activeStep && index < activeStep + itemsPerView ? (
+          index >= pageStart && index < pageStart + itemsPerView ? (
             <Area
               key={item.id}
               title={item.title}
-              text={item.text}
               icon={item.icon}
+              handleShowDialog={() => handleShowDialog(index)}
             />
           ) : null,
         )}
       </Grid>
       <DotsMobileStepper
-        steps={itemsAreas.length - (itemsPerView - 1)}
-        activeStep={activeStep}
+        steps={pageCount}
+        activeStep={activePage}
         handleNext={handleNext}
         handleBack={handleBack}
       />
+      <Dialog
+        title={activeArea.title}
+        isOpen={isDialogOpen}
+        handleHideDialog={handleHideDialog}
+        steps={itemsAreas.length}
+        activeStep={activeAreaIndex}
+        handleNext={handleNextDialog}
+        handleBack={handleBackDialog}
+      >
+        {activeArea.text}
+      </Dialog>
     </Grid>
   );
 };

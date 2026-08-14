@@ -60,7 +60,7 @@ const Question = ({
           </Button>
         </Grid>
         {open && (
-          <Typography variant="body2" paddingTop={1}>
+          <Typography variant="body1" paddingTop={1}>
             {answer}
           </Typography>
         )}

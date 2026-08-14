@@ -9,6 +9,9 @@ const theme = createTheme({
     secondary: {
       main: colors.aqua,
     },
+    text: {
+      primary: colors.text,
+    },
   },
   components: {
     MuiTypography: {
