@@ -24,6 +24,9 @@ type DialogProps = {
   handleNext?: () => void;
   handleBack?: () => void;
   steps?: number;
+  btnText?: string;
+  btnAction?: () => void;
+  btnDisabled?: boolean;
 };
 
 const Dialog = ({
@@ -35,6 +38,9 @@ const Dialog = ({
   handleNext,
   handleBack,
   steps,
+  btnText = "Cerrar",
+  btnAction,
+  btnDisabled = false,
 }: DialogProps) => {
   const hasNavigation =
     activeStep !== undefined &&
@@ -125,8 +131,13 @@ const Dialog = ({
         )}
       </DialogContent>
       <DialogActions sx={{ justifyContent: "center" }}>
-        <Button color="primary" variant="contained" onClick={handleHideDialog}>
-          Cerrar
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={btnAction ?? handleHideDialog}
+          disabled={btnDisabled}
+        >
+          {btnText}
         </Button>
       </DialogActions>
     </MuiDialog>

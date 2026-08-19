@@ -32,8 +32,8 @@ const Area = ({
         sx={{
           fontSize: {
             xs: "3rem",
-            sm: "2.5rem",
-            md: "2rem",
+            sm: "2.8rem",
+            md: "2.5rem",
           },
         }}
       >
@@ -44,7 +44,7 @@ const Area = ({
         fontWeight={400}
         sx={{
           fontSize: {
-            xs: "1.4rem",
+            xs: "1.3rem",
             sm: "1.2rem",
             md: "1.1rem",
             lg: "1rem",
