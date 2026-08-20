@@ -67,7 +67,6 @@ const NavBar = () => {
       </Link>
       <Grid display={{ xs: "none", sm: "flex" }} justifyContent="space-between">
         {navLinks.map((link) => {
-          const currentUrl = link.url.replace("/#", "");
           return (
             <Link key={link.id} href={link.url}>
               <Typography variant="body1" marginX={2}>

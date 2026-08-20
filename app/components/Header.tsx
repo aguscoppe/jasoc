@@ -71,8 +71,8 @@ const Header = () => {
           >
             Abogada de familia
           </Typography>
-          <Button variant="contained">
-            <Link href="#contact">contacto</Link>
+          <Button component={Link} href="#contact" variant="contained">
+            contacto
           </Button>
         </Grid>
         <Grid>
