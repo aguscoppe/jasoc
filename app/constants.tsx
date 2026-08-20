@@ -77,7 +77,7 @@ export const itemsAreas: Item[] = [
   {
     id: 7,
     title: "Filiación",
-    icon: "badge",
+    icon: "fingerprint",
     text: "Determinación de la maternidad; determinación de la filiación matrimonial y extramatrimonial; acciones de reclamación e impugnación de filiación; filiación por técnicas de reproducción humana asistida; filiación por adopción.",
   },
   {
@@ -95,7 +95,7 @@ export const itemsAreas: Item[] = [
   {
     id: 10,
     title: "Tutela",
-    icon: "security",
+    icon: "supervisor_account",
     text: "Protección de la persona y de los bienes de un niño, niña o adolescente cuando no exista persona que ejerza la responsabilidad parental.",
   },
   {
