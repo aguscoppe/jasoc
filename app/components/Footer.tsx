@@ -30,15 +30,30 @@ const Footer = () => {
           <KeyboardArrowUpIcon />
         </IconButton>
       </Link>
-      <Grid display="flex" alignItems="center" justifyContent="center">
+      <Grid
+        display="flex"
+        flexDirection={{
+          xs: "column",
+          sm: "row",
+        }}
+        alignItems="center"
+        justifyContent="center"
+      >
         {navLinks.map((link) => (
           <Link key={link.id} href={link.url}>
             <Typography
-              variant="body1"
+              variant="body2"
               fontSize="small"
               key={link.id}
-              paddingY={1}
-              paddingX={2}
+              sx={{
+                color: "black",
+              }}
+              paddingY={{
+                sm: 1,
+              }}
+              paddingX={{
+                sm: 2,
+              }}
             >
               {link.title}
             </Typography>

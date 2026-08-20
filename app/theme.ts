@@ -37,19 +37,25 @@ const theme = createTheme({
           color: "#333",
         },
         h6: {
-          fontFamily: "var(--font-roboto-condensed)",
+          fontFamily: "Arial, Helvetica, sans-serif",
           fontWeight: 300,
           color: "#333",
         },
         body1: {
-          fontFamily: "var(--font-roboto-condensed)",
+          fontFamily: "Arial, Helvetica, sans-serif",
           fontWeight: 300,
           color: "#333",
+          "@media (max-width: 399.99px)": {
+            fontSize: "0.9rem",
+          },
         },
         body2: {
-          fontFamily: "var(--font-roboto-condensed)",
+          fontFamily: "Arial, Helvetica, sans-serif",
           fontWeight: 300,
           color: "#666",
+          "@media (max-width: 399.99px)": {
+            fontSize: "0.75rem",
+          },
         },
       },
     },
@@ -70,7 +76,7 @@ const theme = createTheme({
       ],
       styleOverrides: {
         root: {
-          fontFamily: "var(--font-roboto-condensed)",
+          fontFamily: "Arial, Helvetica, sans-serif",
           fontWeight: 300,
           borderRadius: "20px",
           border: "none",
@@ -79,6 +85,9 @@ const theme = createTheme({
           ":hover": {
             boxShadow: "none",
             backgroundColor: colors.coral,
+          },
+          "@media (max-width: 399.99px)": {
+            fontSize: "0.75rem",
           },
         },
       },

@@ -47,6 +47,11 @@ const Dialog = ({
       boxShadow: "none",
       backgroundColor: "transparent",
     },
+    "@media (max-width: 399.99px)": {
+      padding: 0,
+      margin: 0,
+      minWidth: "inherit",
+    },
   };
   return (
     <MuiDialog
@@ -55,8 +60,17 @@ const Dialog = ({
       slotProps={{
         paper: {
           sx: {
-            borderRadius: "40px",
-            padding: 1,
+            width: {
+              xs: "calc(100% - 32px)",
+              sm: "calc(100% - 64px)",
+              md: "auto",
+            },
+            margin: { xs: 2, sm: 4 },
+            borderRadius: { xs: "24px", sm: "40px" },
+            padding: {
+              xs: 0,
+              sm: 1,
+            },
           },
         },
       }}
@@ -65,11 +79,17 @@ const Dialog = ({
         textAlign="center"
         sx={{
           position: "relative",
-          padding: 2,
-          paddingRight: 6,
+          padding: { xs: 1.5, sm: 2 },
+          paddingRight: { xs: 5, sm: 6 },
         }}
       >
-        <Typography variant="body1" fontSize="1.5rem">
+        <Typography
+          variant="body1"
+          fontSize={{
+            xs: "1.2rem",
+            sm: "1.5rem",
+          }}
+        >
           {title}
         </Typography>
         <IconButton
@@ -80,8 +100,8 @@ const Dialog = ({
             color: "text.primary",
             padding: 1,
             position: "absolute",
-            top: 8,
-            right: 8,
+            top: { xs: 6, sm: 8 },
+            right: { xs: 6, sm: 8 },
             "&:hover": {
               backgroundColor: "rgba(0, 0, 0, 0.08)",
             },
@@ -94,6 +114,7 @@ const Dialog = ({
         sx={{
           display: hasNavigation ? "flex" : "block",
           alignItems: "center",
+          padding: { xs: 1.5, sm: 2 },
         }}
       >
         {hasNavigation && (
@@ -106,9 +127,23 @@ const Dialog = ({
             <KeyboardArrowLeft />
           </Button>
         )}
-        <Box sx={{ flex: 1, minWidth: 0 }}>
+        <Box
+          sx={{
+            flex: 1,
+            minWidth: 0,
+          }}
+        >
           {typeof children === "string" ? (
-            <Typography variant="body1">{children}</Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                "@media (max-width: 399.99px)": {
+                  fontSize: "0.95rem",
+                },
+              }}
+            >
+              {children}
+            </Typography>
           ) : (
             children
           )}
@@ -124,7 +159,12 @@ const Dialog = ({
           </Button>
         )}
       </DialogContent>
-      <DialogActions sx={{ justifyContent: "center" }}>
+      <DialogActions
+        sx={{
+          justifyContent: "center",
+          padding: { xs: 1.5, sm: 2 },
+        }}
+      >
         <Button color="primary" variant="contained" onClick={handleHideDialog}>
           Cerrar
         </Button>

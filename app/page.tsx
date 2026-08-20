@@ -33,7 +33,7 @@ export default function Home() {
           backgroundColor: "#f5f5f5",
         }}
       >
-        <Header currentSectionId={currentSectionId} />
+        <Header />
         <About />
         <Areas />
         <Questions />
