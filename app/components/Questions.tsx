@@ -26,14 +26,15 @@ const Questions = () => {
       justifyContent="center"
       paddingTop={12}
     >
-      <SectionTitle padding={3}>
-        Preguntas frecuentes
-      </SectionTitle>
+      <SectionTitle padding={3}>Preguntas frecuentes</SectionTitle>
       <Grid
         size={sizes}
         display="flex"
         flexDirection="column"
-        paddingY={4}
+        paddingY={{
+          xs: 2,
+          sm: 4,
+        }}
         sx={{
           background: "#fff",
           borderRadius: "40px",

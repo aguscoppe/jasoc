@@ -35,6 +35,9 @@ const Area = ({
             sm: "2.5rem",
             md: "2rem",
           },
+          "@media (max-width: 399.99px)": {
+            fontSize: "2.8rem",
+          },
         }}
       >
         {icon}
@@ -48,6 +51,9 @@ const Area = ({
             sm: "1.2rem",
             md: "1.1rem",
             lg: "1rem",
+          },
+          "@media (max-width: 399.99px)": {
+            fontSize: "1.15rem",
           },
         }}
       >

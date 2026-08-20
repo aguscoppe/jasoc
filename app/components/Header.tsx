@@ -5,7 +5,7 @@ import Link from "next/link";
 import { sizes } from "../constants";
 import useBreakpoints from "../hooks/useBreakpoints";
 
-const Header = ({ currentSectionId }: { currentSectionId: string | null }) => {
+const Header = () => {
   const { isXs } = useBreakpoints();
   const mainTitleVariant = isXs ? "h2" : "h1";
   return (
@@ -13,12 +13,18 @@ const Header = ({ currentSectionId }: { currentSectionId: string | null }) => {
       component="section"
       id="header"
       sx={{
-        height: "100vh",
+        height: {
+          xs: "80vh",
+          sm: "100vh",
+        },
+        "@media (max-width: 399.99px)": {
+          height: "65vh",
+        },
         backgroundSize: "cover",
         backgroundImage: 'url("/header_bg.png")',
       }}
     >
-      <NavBar currentSectionId={currentSectionId} />
+      <NavBar />
       <Grid
         height="100%"
         display="flex"
@@ -26,6 +32,15 @@ const Header = ({ currentSectionId }: { currentSectionId: string | null }) => {
         alignItems="center"
         justifyContent="center"
         size={sizes}
+        sx={{
+          paddingTop: {
+            xs: "10vh",
+            sm: 0,
+          },
+          "@media (max-width: 399.99px)": {
+            paddingTop: "20vh",
+          },
+        }}
       >
         <Grid
           display="flex"
@@ -33,8 +48,27 @@ const Header = ({ currentSectionId }: { currentSectionId: string | null }) => {
           justifyContent="center"
           alignItems="center"
         >
-          <Typography variant={mainTitleVariant}>Bettina Ruibal</Typography>
-          <Typography variant="h4" marginBottom={4}>
+          <Typography
+            variant={mainTitleVariant}
+            align="center"
+            sx={{
+              "@media (max-width: 399.99px)": {
+                fontSize: "2.8rem",
+              },
+            }}
+          >
+            Bettina Ruibal
+          </Typography>
+          <Typography
+            variant="h4"
+            align="center"
+            marginBottom={4}
+            sx={{
+              "@media (max-width: 399.99px)": {
+                fontSize: "1.6rem",
+              },
+            }}
+          >
             Abogada de familia
           </Typography>
           <Button variant="contained">

@@ -4,6 +4,9 @@ import { sizes } from "../constants";
 import SectionTitle from "./SectionTitle";
 
 const Contact = () => {
+  const contactEmail =
+    "mailto:bettina@jasoc.com.ar,bettinaruibal@gmail.com?subject=Consulta%20desde%20la%20web";
+
   return (
     <Grid
       component="section"
@@ -15,9 +18,7 @@ const Contact = () => {
       justifyContent="center"
       paddingTop={12}
     >
-      <SectionTitle padding={3}>
-        Contacto
-      </SectionTitle>
+      <SectionTitle padding={3}>Contacto</SectionTitle>
       <Grid
         display="flex"
         flexDirection={{ xs: "column", sm: "row" }}
@@ -28,7 +29,17 @@ const Contact = () => {
         <Grid size={{ xs: 12 }}>
           <Image src="/map.png" alt="map" width={400} height={400} />
         </Grid>
-        <Grid display="flex" flexDirection="column" size={{ xs: 12 }}>
+        <Grid
+          display="flex"
+          flexDirection="column"
+          size={{ xs: 12 }}
+          sx={{
+            textAlign: {
+              sm: "left",
+              xs: "center",
+            },
+          }}
+        >
           <Typography>
             Se realizan entrevistas en zona Tribunales o Caballito. Envía tu
             consulta a cualquiera de estos mails y recibirás una respuesta a la
@@ -36,7 +47,12 @@ const Contact = () => {
           </Typography>
           <Typography>bettina@jasoc.com.ar</Typography>
           <Typography>bettinaruibal@gmail.com</Typography>
-          <Button variant="contained" sx={{ marginTop: 2 }}>
+          <Button
+            component="a"
+            href={contactEmail}
+            variant="contained"
+            sx={{ marginTop: 2 }}
+          >
             Enviar consulta
           </Button>
         </Grid>

@@ -13,7 +13,7 @@ import { navLinks } from "../constants";
 import { useEffect, useState } from "react";
 import useBreakpoints from "../hooks/useBreakpoints";
 
-const NavBar = ({ currentSectionId }: { currentSectionId: string | null }) => {
+const NavBar = () => {
   const theme = useTheme();
   const { isXs } = useBreakpoints();
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -70,16 +70,7 @@ const NavBar = ({ currentSectionId }: { currentSectionId: string | null }) => {
           const currentUrl = link.url.replace("/#", "");
           return (
             <Link key={link.id} href={link.url}>
-              <Typography
-                variant="body1"
-                marginX={2}
-                sx={{
-                  borderBottom:
-                    currentUrl === currentSectionId
-                      ? "1px solid black"
-                      : "none",
-                }}
-              >
+              <Typography variant="body1" marginX={2}>
                 {link.title}
               </Typography>
             </Link>

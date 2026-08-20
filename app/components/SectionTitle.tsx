@@ -12,7 +12,17 @@ const SectionTitle = ({ children, ...props }: SectionTitleProps) => {
   }, [isXs, isSm]);
 
   return (
-    <Typography {...props} component="h2" variant={variant}>
+    <Typography
+      {...props}
+      component="h2"
+      variant={variant}
+      align="center"
+      sx={{
+        "@media (max-width: 399.99px)": {
+          fontSize: "1.8rem",
+        },
+      }}
+    >
       {children}
     </Typography>
   );
