@@ -15,21 +15,21 @@ const Footer = () => {
       marginTop={16}
       sx={{ backgroundColor: "white" }}
     >
-      <Link href="#header">
-        <IconButton
-          sx={{
-            marginTop: "-30px",
+      <IconButton
+        component={Link}
+        href="#header"
+        sx={{
+          marginTop: "-30px",
+          backgroundColor: "#A3E0E2",
+          color: "#fff",
+          ":hover": {
             backgroundColor: "#A3E0E2",
-            color: "#fff",
-            ":hover": {
-              backgroundColor: "#A3E0E2",
-            },
-          }}
-          aria-label="Volver al inicio"
-        >
-          <KeyboardArrowUpIcon />
-        </IconButton>
-      </Link>
+          },
+        }}
+        aria-label="Volver al inicio"
+      >
+        <KeyboardArrowUpIcon />
+      </IconButton>
       <Grid
         display="flex"
         flexDirection={{
