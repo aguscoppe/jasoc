@@ -3,88 +3,136 @@ import NavBar from "./NavBar";
 import Image from "next/image";
 import Link from "next/link";
 import { sizes } from "../constants";
-import useBreakpoints from "../hooks/useBreakpoints";
+
+const marginSizes = {
+  xs: 0,
+  lg: 1,
+};
 
 const Header = () => {
-  const { isXs } = useBreakpoints();
-  const mainTitleVariant = isXs ? "h2" : "h1";
   return (
-    <Grid
-      component="section"
-      id="header"
-      sx={{
-        height: {
-          xs: "80vh",
-          sm: "100vh",
-        },
-        "@media (max-width: 399.99px)": {
-          height: "65vh",
-        },
-        backgroundSize: "cover",
-        backgroundImage: 'url("/header_bg.png")',
-      }}
-    >
+    <>
       <NavBar />
       <Grid
-        height="100%"
+        container
+        component="section"
+        id="header"
         display="flex"
-        flexDirection={{ xs: "column-reverse", lg: "row" }}
         alignItems="center"
         justifyContent="center"
-        size={sizes}
         sx={{
-          paddingTop: {
-            xs: "10vh",
-            sm: 0,
+          height: {
+            xs: "80vh",
+            sm: "100vh",
           },
           "@media (max-width: 399.99px)": {
-            paddingTop: "20vh",
+            height: "65vh",
           },
+          backgroundSize: "cover",
+          backgroundImage: 'url("/header_bg.png")',
         }}
       >
         <Grid
+          height="100%"
           display="flex"
-          flexDirection="column"
-          justifyContent="center"
+          flexDirection={{ xs: "column-reverse", lg: "row" }}
           alignItems="center"
+          justifyContent="center"
+          // size={sizes}
+          sx={{
+            paddingTop: {
+              xs: "10vh",
+              sm: 0,
+            },
+            "@media (max-width: 399.99px)": {
+              paddingTop: "20vh",
+            },
+          }}
         >
-          <Typography
-            variant={mainTitleVariant}
-            align="center"
-            sx={{
-              "@media (max-width: 399.99px)": {
-                fontSize: "2.8rem",
-              },
+          <Grid
+            display="flex"
+            flexDirection="column"
+            justifyContent="center"
+            alignItems="center"
+            marginRight={marginSizes}
+            size={{ xs: 12, lg: 5 }}
+          >
+            <Typography
+              component="h1"
+              variant="h1"
+              align="center"
+              sx={{
+                fontSize: {
+                  xs: "3.75rem",
+                  sm: "6rem",
+                  lg: "5.25rem",
+                  xl: "5.5rem",
+                },
+                "@media (max-width: 399.99px)": {
+                  fontSize: "2.8rem",
+                },
+              }}
+            >
+              Bettina Ruibal
+            </Typography>
+            <Typography
+              component="h2"
+              variant="h2"
+              align="center"
+              sx={{
+                fontSize: {
+                  xs: "2.5rem",
+                  sm: "3.75rem",
+                  md: "2.75rem",
+                  lg: "2.5rem",
+                  xl: "3rem",
+                },
+                "@media (max-width: 399.99px)": {
+                  fontSize: "2rem",
+                },
+              }}
+            >
+              Abogada de familia
+            </Typography>
+            <Typography variant="body1" align="center">
+              Asesoramiento jurídico personalizado para la resolución de
+              conflictos familiares y patrimoniales.
+            </Typography>
+            <Grid
+              display="flex"
+              flexDirection={{
+                xs: "column",
+                sm: "row",
+              }}
+            >
+              <Button component={Link} href="#contact" variant="contained">
+                Solicitar una consulta{" "}
+              </Button>
+              <Button component={Link} href="#areas" variant="outlined">
+                Ver áreas de práctica{" "}
+              </Button>
+            </Grid>
+          </Grid>
+          <Grid
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            marginLeft={marginSizes}
+            size={{
+              xs: 12,
+              lg: 5,
             }}
           >
-            Bettina Ruibal
-          </Typography>
-          <Typography
-            variant="h4"
-            align="center"
-            marginBottom={4}
-            sx={{
-              "@media (max-width: 399.99px)": {
-                fontSize: "1.6rem",
-              },
-            }}
-          >
-            Abogada de familia
-          </Typography>
-          <Button component={Link} href="#contact" variant="contained">
-            contacto
-          </Button>
-        </Grid>
-        <Grid>
-          <Image
-            src="/header.png"
-            alt="Bettina Ruibal"
-            width={500}
-            height={500}
-          />
+            <Image
+              src="/header.png"
+              alt="Bettina Ruibal, abogada de familia en Buenos Aires"
+              width={500}
+              height={500}
+            />
+          </Grid>
         </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
 

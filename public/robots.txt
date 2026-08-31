@@ -5,6 +5,3 @@ Disallow:
 
 # Sitemaps
 Sitemap: https://jasoc.com.ar/sitemap.xml
-
-# Crawl-delay to be respectful
-Crawl-delay: 1

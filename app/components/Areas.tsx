@@ -13,11 +13,21 @@ const getItemsPerView = (
   isMd: boolean,
   isLg: boolean,
 ): number => {
+  console.log({
+    isXs,
+    isSm,
+    isMd,
+    isLg,
+  });
   if (isXs) return 1;
   if (isSm) return 2;
   if (isMd) return 3;
+  /*
   if (isLg) return 4;
   return 4; // xl
+  */
+  if (isLg) return 3;
+  return 3; // xl
 };
 
 const Areas = () => {
@@ -28,10 +38,7 @@ const Areas = () => {
 
   const itemsPerView = getItemsPerView(isXs, isSm, isMd, isLg);
   const lastPageStart = Math.max(itemsAreas.length - itemsPerView, 0);
-  const pageCount = Math.max(
-    Math.ceil(lastPageStart / itemsPerView) + 1,
-    1,
-  );
+  const pageCount = Math.max(Math.ceil(lastPageStart / itemsPerView) + 1, 1);
   const pageStart = Math.min(activePage * itemsPerView, lastPageStart);
   const activeArea = itemsAreas[activeAreaIndex];
 
@@ -62,7 +69,9 @@ const Areas = () => {
 
     const pageEnd = pageStart + itemsPerView - 1;
     if (nextIndex > pageEnd) {
-      setActivePage(Math.min(Math.floor(nextIndex / itemsPerView), pageCount - 1));
+      setActivePage(
+        Math.min(Math.floor(nextIndex / itemsPerView), pageCount - 1),
+      );
     }
   };
 
@@ -100,6 +109,7 @@ const Areas = () => {
             <Area
               key={item.id}
               title={item.title}
+              summary={item.summary}
               icon={item.icon}
               handleShowDialog={() => handleShowDialog(index)}
             />

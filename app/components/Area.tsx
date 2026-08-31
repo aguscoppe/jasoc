@@ -2,16 +2,18 @@ import { Button, Grid, Typography, Icon } from "@mui/material";
 
 const Area = ({
   title,
+  summary,
   icon,
   handleShowDialog,
 }: {
   title: string;
+  summary: string;
   icon: string;
   handleShowDialog: () => void;
 }) => {
   return (
     <Grid
-      size={{ xs: 12, sm: 6, md: 4, lg: 3 }}
+      size={{ xs: 12, sm: 6, md: 4 }}
       padding={2}
       display="flex"
       flexDirection="column"
@@ -21,7 +23,11 @@ const Area = ({
       sx={{
         background: "#fff",
         borderRadius: "40px",
-        height: "180px",
+        boxSizing: "border-box",
+        height: {
+          xs: "235px",
+          sm: "220px",
+        },
         width: "100%",
         boxShadow: "0px 4px 32px rgba(0, 0, 0, 0.1)",
       }}
@@ -43,14 +49,19 @@ const Area = ({
         {icon}
       </Icon>
       <Typography
-        variant="h6"
+        component="h3"
+        variant="h3"
         fontWeight={400}
         sx={{
+          minHeight: "2.6em",
+          display: "-webkit-box",
+          WebkitBoxOrient: "vertical",
+          WebkitLineClamp: 2,
+          overflow: "hidden",
           fontSize: {
             xs: "1.4rem",
-            sm: "1.2rem",
-            md: "1.1rem",
-            lg: "1rem",
+            sm: "1.3rem",
+            md: "1.25rem",
           },
           "@media (max-width: 399.99px)": {
             fontSize: "1.15rem",
@@ -59,8 +70,25 @@ const Area = ({
       >
         {title}
       </Typography>
-      <Button variant="contained" size="small" onClick={handleShowDialog}>
-        ver más
+      <Typography
+        variant="body2"
+        sx={{
+          minHeight: "4.5em",
+          display: "-webkit-box",
+          WebkitBoxOrient: "vertical",
+          WebkitLineClamp: 3,
+          overflow: "hidden",
+        }}
+      >
+        {summary}
+      </Typography>
+      <Button
+        variant="contained"
+        size="small"
+        onClick={handleShowDialog}
+        sx={{ marginTop: "auto" }}
+      >
+        Conocer más
       </Button>
     </Grid>
   );

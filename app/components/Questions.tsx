@@ -1,4 +1,4 @@
-import { Grid } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { itemsFAQ, sizes } from "../constants";
 import Question from "./Question";
 import { useState } from "react";
@@ -55,6 +55,10 @@ const Questions = () => {
             handleOpen={handleOpen}
           />
         ))}
+      </Grid>
+      <Grid>
+        <Typography>¿Tu situación no está contemplada?</Typography>
+        <Button>Solicitar una consulta →</Button>
       </Grid>
     </Grid>
   );

@@ -4,11 +4,13 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Bettina Ruibal | Abogada de Familia en Buenos Aires",
   description:
-    "Abogada especialista en derecho de familia, divorcios, custodia, alimentos y sucesiones en Buenos Aires. Asesoramiento integral desde 1997.",
+    "Bettina Ruibal, abogada de familia en Buenos Aires. Asesoramiento en divorcios, alimentos, sucesiones y conflictos familiares desde 1997.",
   keywords:
-    "abogada familia, divorcio, custodia hijos, alimentos, derecho sucesorio, Buenos Aires, Tribunales, Caballito",
+    "abogada de familia Buenos Aires, abogada divorcio Buenos Aires, abogada sucesiones Buenos Aires, abogada alimentos CABA",
   authors: [{ name: "Bettina Ruibal" }],
   metadataBase: new URL("https://jasoc.com.ar"),
+  alternates: { canonical: "/" },
+  icons: { icon: "/favicon.ico" },
   openGraph: {
     type: "website",
     locale: "es_AR",
@@ -57,7 +59,6 @@ export default function RootLayout({
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#FFB8A4" />
-        <link rel="canonical" href="https://jasoc.com.ar" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -67,52 +68,57 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              "@id": "https://jasoc.com.ar",
-              name: "Bettina Ruibal - Abogada de Familia",
-              image: "https://jasoc.com.ar/og-image.png",
-              description:
-                "Abogada especialista en derecho de familia, divorcios, custodia, alimentos y sucesiones",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Buenos Aires",
-                addressRegion: "Buenos Aires",
-                addressCountry: "AR",
-              },
-              email: "bettina@jasoc.com.ar",
-              url: "https://jasoc.com.ar",
-              sameAs: [],
-              areaServed: "Buenos Aires",
-              priceRange: "Consultar",
-              knowsAbout: [
-                "Derecho de Familia",
-                "Divorcio",
-                "Custodia de Hijos",
-                "Alimentos",
-                "Derecho Sucesorio",
-                "Uniones Convivenciales",
-                "Violencia Familiar",
+              "@graph": [
+                {
+                  "@type": "LegalService",
+                  "@id": "https://jasoc.com.ar/#legal-service",
+                  name: "Bettina Ruibal - Abogada de Familia",
+                  image: "https://jasoc.com.ar/og-image.png",
+                  description:
+                    "Servicios legales especializados en derecho de familia y sucesiones en Buenos Aires.",
+                  address: {
+                    "@type": "PostalAddress",
+                    addressLocality: "Buenos Aires",
+                    addressRegion: "Ciudad Autónoma de Buenos Aires",
+                    addressCountry: "AR",
+                  },
+                  email: "bettina@jasoc.com.ar",
+                  url: "https://jasoc.com.ar/",
+                  areaServed: [
+                    { "@type": "City", name: "Buenos Aires" },
+                    {
+                      "@type": "AdministrativeArea",
+                      name: "Ciudad Autónoma de Buenos Aires",
+                    },
+                  ],
+                  priceRange: "Consultar",
+                  knowsAbout: [
+                    "Derecho de Familia",
+                    "Divorcio",
+                    "Alimentos",
+                    "Sucesiones",
+                    "Responsabilidad parental",
+                    "Violencia familiar",
+                  ],
+                  founder: { "@id": "https://jasoc.com.ar/#bettina-ruibal" },
+                },
+                {
+                  "@type": "Person",
+                  "@id": "https://jasoc.com.ar/#bettina-ruibal",
+                  name: "Bettina Ruibal",
+                  jobTitle: "Abogada especialista en derecho de familia",
+                  url: "https://jasoc.com.ar/",
+                  email: "bettina@jasoc.com.ar",
+                  worksFor: { "@id": "https://jasoc.com.ar/#legal-service" },
+                },
+                {
+                  "@type": "WebSite",
+                  "@id": "https://jasoc.com.ar/#website",
+                  url: "https://jasoc.com.ar/",
+                  name: "Bettina Ruibal | Abogada de Familia",
+                  inLanguage: "es-AR",
+                },
               ],
-            }),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "ProfessionalService",
-              name: "Bettina Ruibal - Servicios Legales",
-              url: "https://jasoc.com.ar",
-              email: "bettina@jasoc.com.ar",
-              address: {
-                "@type": "PostalAddress",
-                streetAddress: "Buenos Aires",
-                addressRegion: "Buenos Aires",
-                addressCountry: "AR",
-              },
-              description:
-                "Servicios legales especializados en derecho de familia",
             }),
           }}
         />

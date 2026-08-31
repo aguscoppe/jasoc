@@ -4,8 +4,7 @@ import { sizes } from "../constants";
 import SectionTitle from "./SectionTitle";
 
 const Contact = () => {
-  const contactEmail =
-    "mailto:bettina@jasoc.com.ar,bettinaruibal@gmail.com?subject=Consulta%20desde%20la%20web";
+  const contactEmail = "mailto:bettina@jasoc.com.ar";
 
   return (
     <Grid
@@ -18,7 +17,7 @@ const Contact = () => {
       justifyContent="center"
       paddingTop={12}
     >
-      <SectionTitle padding={3}>Contacto</SectionTitle>
+      <SectionTitle padding={3}>Solicitar consulta</SectionTitle>
       <Grid
         display="flex"
         flexDirection={{ xs: "column", sm: "row" }}
@@ -27,7 +26,12 @@ const Contact = () => {
         size={sizes}
       >
         <Grid size={{ xs: 12 }}>
-          <Image src="/map.png" alt="map" width={400} height={400} />
+          <Image
+            src="/map.png"
+            alt="Mapa de atención en Tribunales y Caballito, Buenos Aires"
+            width={400}
+            height={400}
+          />
         </Grid>
         <Grid
           display="flex"
@@ -41,12 +45,10 @@ const Contact = () => {
           }}
         >
           <Typography>
-            Se realizan entrevistas en zona Tribunales o Caballito. Envía tu
-            consulta a cualquiera de estos mails y recibirás una respuesta a la
-            brevedad.
+            Contanos brevemente tu situación y nos pondremos en contacto a la
+            brevedad para coordinar una entrevista presencial o virtual por
+            Zoom.
           </Typography>
-          <Typography>bettina@jasoc.com.ar</Typography>
-          <Typography>bettinaruibal@gmail.com</Typography>
           <Button
             component="a"
             href={contactEmail}
