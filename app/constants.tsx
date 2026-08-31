@@ -1,4 +1,4 @@
-export const sizes = { xs: 10, sm: 9, md: 8, lg: 6 };
+export const sizes = { xs: 10, sm: 9, md: 8, lg: 12, xl: 11 };
 export const colors = {
   coral: "#FFB8A4",
   aqua: "#A3E0E2",
@@ -16,6 +16,7 @@ export interface Item {
   title: string;
   icon: string;
   text: string;
+  summary: string;
 }
 
 export const navLinks = [
@@ -37,6 +38,7 @@ export const fullAboutMe = [
 export const shortAboutMe =
   "Abogada recibida en la Universidad de Buenos Aires (UBA) - Facultad de Derecho y Ciencias Sociales en el año 1997. Dedicada desde el año 2000 a la resolución de conflictos personales y patrimoniales relacionados con el derecho de familia y asuntos sucesorios. Práctica adquirida en estudios jurídicos de primer nivel, cursos de posgrado y actualización legislativa. Experiencia y desempeño de alto rendimiento en la especialidad.";
 
+/*
 export const itemsAreas: Item[] = [
   {
     id: 1,
@@ -129,6 +131,130 @@ export const itemsAreas: Item[] = [
     text: "Sucesiones ab intestato (sin testamento) y testamentarias (testamento a sobre cerrado, por acto público ante escribano, u ológrafo escrito de puño y letra, fechado y firmado); representación de herederos en forma conjunta o separada; protección de la legítima; acción de colación; acuerdos particionales de la herencia; beneficio de inventario; asesoramiento sobre donaciones en vida o testamentos.",
   },
 ];
+*/
+
+export const itemsAreas: Item[] = [
+  {
+    id: 1,
+    title: "Divorcio",
+    icon: "heart_broken",
+    summary:
+      "Asesoramiento en divorcios, convenios reguladores y distribución de bienes.",
+    text: "Petición unilateral con propuesta reguladora o petición conjunta con convenio regulador; atribución de la vivienda familiar; compensación económica; régimen patrimonial del matrimonio (comunidad: bienes propios y gananciales, o separación de bienes); liquidación del régimen de comunidad de bienes y partición; fijación de renta compensatoria por uso de vivienda.",
+  },
+  {
+    id: 2,
+    title: "Medidas provisionales",
+    icon: "policy",
+    summary:
+      "Medidas urgentes para la protección de las personas y sus bienes durante conflictos familiares.",
+    text: "Medidas relativas a las personas y a los bienes: embargo de bienes muebles o inmuebles; inhibición general de bienes; medidas de no innovar; exclusión del hogar; entrega de objetos de uso personal; alimentos provisorios.",
+  },
+  {
+    id: 3,
+    title: "Uniones convivenciales",
+    icon: "groups",
+    summary:
+      "Asesoramiento sobre pactos de convivencia, cese de la unión y sus efectos patrimoniales.",
+    text: "Pactos de convivencia (confección, modificación, rescisión, extinción) y efectos frente a terceros; cese de la convivencia con confección de convenio regulador; compensación económica; atribución de la vivienda familiar; fijación de renta compensatoria por uso de vivienda.",
+  },
+  {
+    id: 4,
+    title: "Régimen de Alimentos",
+    icon: "restaurant",
+    summary:
+      "Fijación, modificación y reclamo de cuotas alimentarias para hijos y familiares.",
+    text: "Fijación de la prestación alimentaria; reclamo a ascendientes (abuelos); modificación de la prestación (aumento, disminución, cesación); alimentos para hijos mayores de edad; alimentos para ex cónyuge o ex conviviente en situaciones excepcionales; liquidación y ejecución de alimentos impagos o adeudados.",
+  },
+  {
+    id: 5,
+    title: "Responsabilidad parental",
+    icon: "family_restroom",
+    summary:
+      "Asesoramiento sobre cuidado personal, comunicación y residencia de hijos.",
+    text: "Cuidado personal y régimen de comunicación de los hijos: cuidado personal compartido (indistinto o alternado); regímenes de comunicación con progenitor no conviviente; cuidado personal unilateral; residencia o domicilio principal del hijo; extinción, privación, suspensión y rehabilitación de la responsabilidad parental; regímenes de comunicación con abuelos y familiares.",
+  },
+  {
+    id: 6,
+    title: "Violencia familiar",
+    icon: "shield",
+    summary:
+      "Asesoramiento y acompañamiento legal ante situaciones de violencia familiar.",
+    text: "Protección de personas ante actos que incluyen fuerza física, hostigamiento, acoso, intimidación o abusos dentro o fuera del hogar, perpetrados por un miembro de la familia contra otro; asesoramiento previo a la denuncia; seguimiento del trámite hasta su finalización; prórroga de las medidas dictadas.",
+  },
+  {
+    id: 7,
+    title: "Filiación",
+    icon: "fingerprint",
+    summary:
+      "Asesoramiento en acciones de determinación, reclamación e impugnación de la filiación.",
+    text: "Determinación de la maternidad; determinación de la filiación matrimonial y extramatrimonial; acciones de reclamación e impugnación de filiación; filiación por técnicas de reproducción humana asistida; filiación por adopción.",
+  },
+  {
+    id: 8,
+    title: "Adopción",
+    icon: "child_care",
+    summary:
+      "Asesoramiento y representación en los distintos procesos y modalidades de adopción.",
+    text: "Guarda con fines de adopción; adopción plena; adopción simple; adopción de integración (adopción del hijo del cónyuge o del conviviente).",
+  },
+  {
+    id: 9,
+    title: "Guarda",
+    icon: "supervised_user_circle",
+    summary:
+      "Asesoramiento en procesos judiciales de guarda de niños, niñas y adolescentes.",
+    text: "Petición judicial de guarda del menor a favor de un pariente en supuestos de gravedad, por el plazo de un año, prorrogable por otro período igual; resolución posterior de la situación del niño, niña o adolescente.",
+  },
+  {
+    id: 10,
+    title: "Tutela",
+    icon: "supervisor_account",
+    summary:
+      "Protección legal de niños y adolescentes sin una persona que ejerza la responsabilidad parental.",
+    text: "Protección de la persona y de los bienes de un niño, niña o adolescente cuando no exista persona que ejerza la responsabilidad parental.",
+  },
+  {
+    id: 11,
+    title: "Autorizaciones de viaje",
+    icon: "flight_takeoff",
+    summary:
+      "Gestión judicial de autorizaciones para viajes y radicación de menores en el exterior.",
+    text: "Venia judicial en distintas hipótesis: oposición de uno de los progenitores al viaje de un menor al exterior; viajes que no contemplan el superior interés del menor; viajes sin condiciones de seguridad; revocación de autorizaciones existentes; pedido de radicación de un menor en el exterior conforme al superior interés del niño.",
+  },
+  {
+    id: 12,
+    title: "Exequatur",
+    icon: "public",
+    summary:
+      "Reconocimiento y validación en Argentina de sentencias dictadas en el extranjero.",
+    text: "Reconocimiento de sentencias extranjeras; trámite de validación de sentencia dictada en otro país e inscripción ante el Registro del Estado Civil y Capacidad de las Personas.",
+  },
+  {
+    id: 13,
+    title: "Informaciones sumarias",
+    icon: "description",
+    summary:
+      "Tramitación de inscripciones y rectificaciones vinculadas al estado civil de las personas.",
+    text: "Inscripción de matrimonio celebrado en el extranjero; inscripción tardía de nacimiento; inscripción de adopción celebrada en el extranjero; rectificación de partidas.",
+  },
+  {
+    id: 14,
+    title: "Salud Mental - Internaciones",
+    icon: "psychology",
+    summary:
+      "Asesoramiento en procesos relacionados con capacidad, restricciones y sistemas de apoyo.",
+    text: "Determinación de la capacidad de las personas; restricciones a la capacidad; sistemas de apoyo al ejercicio de la capacidad; cese a la incapacidad; inhabilitaciones.",
+  },
+  {
+    id: 15,
+    title: "Sucesiones",
+    icon: "account_balance",
+    summary:
+      "Asesoramiento integral en sucesiones, herencias, particiones y planificación sucesoria.",
+    text: "Sucesiones ab intestato (sin testamento) y testamentarias (testamento a sobre cerrado, por acto público ante escribano, u ológrafo escrito de puño y letra, fechado y firmado); representación de herederos en forma conjunta o separada; protección de la legítima; acción de colación; acuerdos particionales de la herencia; beneficio de inventario; asesoramiento sobre donaciones en vida o testamentos.",
+  },
+];
 
 export const itemsFAQ: QuestionItem[] = [
   {
@@ -142,7 +268,7 @@ export const itemsFAQ: QuestionItem[] = [
   {
     id: 2,
     question:
-      "¿Es obligatorio incluir en el divorcio una propuesta que regule los efectos del mismo (alimentos, régimen de comunicación, atribución de vivienda, etcétera?",
+      "¿Es obligatorio incluir en el divorcio una propuesta que regule los efectos del mismo (alimentos, régimen de comunicación, atribución de vivienda, etcétera)?",
     answer:
       "Sí, es obligatorio incluir la propuesta respecto de todos esos temas en la petición de divorcio.",
     open: false,

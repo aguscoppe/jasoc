@@ -70,7 +70,19 @@ const theme = createTheme({
         {
           props: { variant: "outlined" },
           style: {
-            backgroundColor: colors.coral,
+            /*
+            background: "rgba(137, 211, 208, 0.18)",
+            border: "1px solid rgba(137, 211, 208, 0.45)",
+            color: "#2C2C2C",
+           
+            background: "rgba(255, 184, 164, 0.18)",
+            border: "1px solid rgba(255, 184, 164, 0.45)",
+            color: "#2C2C2C", 
+            */
+
+            background: "rgba(255, 184, 164, 0.22)",
+            border: "1px solid rgba(255, 184, 164, 0.40)",
+            color: "#2C2C2C",
           },
         },
       ],
@@ -84,7 +96,6 @@ const theme = createTheme({
           boxShadow: "none",
           ":hover": {
             boxShadow: "none",
-            backgroundColor: colors.coral,
           },
           "@media (max-width: 399.99px)": {
             fontSize: "0.75rem",
